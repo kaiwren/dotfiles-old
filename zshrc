@@ -1,6 +1,7 @@
 export PKGCONFIG_PATH="/usr/local/lib/pkgconfig:/opt/local/lib/pkgconfig"
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin/:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin/:$PATH:/opt/local/bin:/usr/local/mysql/bin/:~/Scripts:$PATH:/opt/local/sbin/
 export SVN_EDITOR="vim"
+export MANPATH=/opt/local/man:$MANPATH
 # number of lines kept in history
 export HISTSIZE=10000
 # number of lines saved in the history after logout
@@ -121,7 +122,6 @@ alias rdm='rake db:migrate db:test:clone'
 alias gi='gem install'
 alias setupdbs="cp config/database.yml.sample config/database.yml;rake db:create;rake db:create RAILS_ENV=test;rake db:migrate"
 alias clrlogs=':> log/*.log'
-alias sd='script/rails destroy'
 
 # Rails
 function rails_command {
@@ -142,13 +142,16 @@ function sg { rails_command "generate" "$@" }
 export BUNDLER_EDITOR="mate"
 
 # rvm hash
+alias rwt='rvm wrapper `rvm-prompt` textmate'
+alias rgib='gem install ~/.rvm/gems/ruby-1.9.2-p0/cache/bundler-1.0.9.gem --no-rdoc --no-ri'
+alias rgcl='rvm gemset clear'
 alias rgu='rvm gemset use'
 alias rgc='rvm gemset create'
 alias rgl='rvm gemset list'
 alias rvmd='rvm default'
 alias rvml='rvm list'
 function rwc {
-  rvm wrapper 1.8.7@$1 textmate
+  rvm wrapper $1 textmate
 }
 
 # emacs
@@ -183,8 +186,8 @@ function title () {
 
 function precmd {
   title `pwd`
-  PS1="%{$fg[yellow]%}%~%{$fg[green]%}$(parse_git_branch)%{$reset_color%}$ "	
-  [[ -s $HOME/.rvm/scripts/rvm ]] && RPS1="%{$fg[yellow]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%}"
+  PS1="%{$fg[gray]%}%~ %{$fg[green]%}$(parse_git_branch)%{$fg[cyan]%}λ %{$reset_color%}"
+  RPS1="%{$fg[gray]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%}"
 }
 
 # Usage:
