@@ -1,5 +1,5 @@
 export PKGCONFIG_PATH="/usr/local/lib/pkgconfig:/opt/local/lib/pkgconfig"
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin/:$PATH:/opt/local/bin:/usr/local/mysql/bin/:~/Scripts:$PATH:/opt/local/sbin/
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin/:/opt/local/bin:/usr/local/mysql/bin/:~/Scripts:/opt/local/sbin/:~/Work/mspec/bin:$PATH
 export SVN_EDITOR="vim"
 export MANPATH=/opt/local/man:$MANPATH
 # number of lines kept in history
@@ -34,6 +34,7 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 # console colors
 autoload -U colors && colors
 alias ls="ls -F"
+alias ll="ls -lha"
 
 # completion
 fpath=(~/.zsh/Completion $fpath)
@@ -143,7 +144,7 @@ export BUNDLER_EDITOR="mate"
 
 # rvm hash
 alias rwt='rvm wrapper `rvm-prompt` textmate'
-alias rgib='gem install ~/.rvm/gems/ruby-1.9.2-p0/cache/bundler-1.0.9.gem --no-rdoc --no-ri'
+alias rgib='gem install ~/.rvm/gems/ruby-1.9.2-p136/cache/bundler-1.0.10.gem --no-rdoc --no-ri'
 alias rgcl='rvm gemset clear'
 alias rgu='rvm gemset use'
 alias rgc='rvm gemset create'
@@ -153,7 +154,9 @@ alias rvml='rvm list'
 function rwc {
   rvm wrapper $1 textmate
 }
-
+function rsetup {
+  rgc $1 && rgu $1 && rgib && bundle
+}
 # emacs
 alias ctaggen='ctags -e `find (app|spec|lib|config)/**/*.rb`'
 
