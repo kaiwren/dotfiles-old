@@ -143,8 +143,8 @@ function sg { rails_command "generate" "$@" }
 export BUNDLER_EDITOR="mate"
 
 # rvm hash
-alias rwt='rvm wrapper `rvm-prompt` textmate'
-alias rgib='gem install ~/.rvm/gems/ruby-1.9.2-p136/cache/bundler-1.0.10.gem --no-rdoc --no-ri'
+alias rwt='rvm wrapper `~/.rvm/bin/rvm-prompt` textmate'
+alias rgib='gem install ~/.rvm/gems/ruby-1.9.2-p180/cache/bundler-1.0.15.gem --no-rdoc --no-ri'
 alias rgcl='rvm gemset clear'
 alias rgu='rvm gemset use'
 alias rgc='rvm gemset create'
@@ -201,6 +201,7 @@ autoload -U _git
 
 # brew install ec2 ami and api tools
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-1.7-x86_64/Contents/Home"
 export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
 export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
 export EC2_AMITOOL_HOME="/usr/local/Cellar/ec2-ami-tools/1.3-45758/jars"
