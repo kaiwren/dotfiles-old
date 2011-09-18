@@ -144,7 +144,7 @@ export BUNDLER_EDITOR="mate"
 
 # rvm hash
 alias rwt='rvm wrapper `~/.rvm/bin/rvm-prompt` textmate'
-alias rgib='gem install ~/.rvm/gems/ruby-1.9.2-p180/cache/bundler-1.0.15.gem --no-rdoc --no-ri'
+alias rgib='gem install ~/.rvm/gems/ruby-1.9.2-p180/cache/bundler-1.0.18.gem --no-rdoc --no-ri'
 alias rgcl='rvm gemset clear'
 alias rgu='rvm gemset use'
 alias rgc='rvm gemset create'
@@ -201,6 +201,8 @@ autoload -U _git
 
 # brew install ec2 ami and api tools
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
+export JRUBY_OPTS="-J-Xmx1024m"
+# export JRUBY_OPTS="-J-Xmx1024m --1.9"
 # export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-1.7-x86_64/Contents/Home"
 export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
 export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
